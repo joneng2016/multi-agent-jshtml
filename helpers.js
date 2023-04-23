@@ -1,27 +1,27 @@
-function positionOfElements(element,myPositionInX,myPositionInY,whatIsNearOfMe) {
-    
-    let elementId = element.id
-    let positionXOfOther = element.style.left.split("px")[0]
-    let positionYOfOther = element.style.top.split("px")[0]
+function conditionToStop () {
+    const elements = document.getElementById("main").children
 
-    let diffPositionX = positionXOfOther - myPositionInX
-    diffPositionX = diffPositionX < 0 ? diffPositionX * (-1) : diffPositionX
-    
-    let diffPositionY = positionYOfOther - myPositionInY
-    diffPositionY = diffPositionY < 0 ? diffPositionY * (-1) : diffPositionY
+    const positionXofTarget = document.getElementById("target").style.left.split("px")[0]
+    const positionYofTarget = document.getElementById("target").style.top.split("px")[0]
 
-    if (diffPositionX < 50 && diffPositionY < 50) {
-        whatIsNearOfMe.push({
-            elementId,
-            positionXOfOther,
-            positionYOfOther
-        })
+    for (let element of elements) {
+        if (element.id === "target") {
+            continue
+        }
+
+        const positionX = element.style.left.split("px")[0]
+        const positionY = element.style.top.split("px")[0]
+
+        let diffX = positionX - positionXofTarget
+        let diffY = positionY - positionYofTarget
+
+        diffX =  diffX < 0 ? -1 * diffX : diffX
+        diffY =  diffY < 0 ? -1 * diffY : diffY
+
+        if (diffX < 10 && diffY < 10 ) {
+            return element.id
+        }
     }
 
-    return whatIsNearOfMe
-}
-
-function conditionToStop () {
-
-
-}
+    return false
+}   

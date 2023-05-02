@@ -92,4 +92,12 @@ class Agent {
  
         return whatIsNearOfMe
     }
+
+    getMyPositionX () {
+        return document.getElementById(this.idOfAgent).style.left.split("px")[0]
+    }    
+
+    getMyPositionY () { 
+        return document.getElementById(this.idOfAgent).style.top.split("px")[0]
+    }
 }

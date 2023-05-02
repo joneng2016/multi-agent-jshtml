@@ -1,14 +1,12 @@
 let exec = true;
-const interaction = document.getElementById("interaction")
 
-for(
-    let i = 0; 
-    i < numberOfInteraction*(1000)*(timeOfOneInteraction); 
-    i+=(1000)*(timeOfOneInteraction)
-) {
+const incrementsOfInteraction = (1000)*(timeOfOneInteraction)
+const totalInteraction = numberOfInteraction*incrementsOfInteraction
+
+for(let i = 0; i < totalInteraction; i+=incrementsOfInteraction) {
     setTimeout(() => {
         if (exec) {
-            interaction.click()
+            main()
 
             const nameOfTarget = conditionToStop()
             if (nameOfTarget) {

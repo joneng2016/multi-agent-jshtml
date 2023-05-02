@@ -82,12 +82,14 @@ class Agent {
                 whatIsNearOfMe.push({
                     elementId,
                     positionXOfOther,
-                    positionYOfOther
+                    positionYOfOther,
+                    diffPositionX,
+                    diffPositionY
                 })
             }
 
         }
-
+ 
         return whatIsNearOfMe
     }
 }

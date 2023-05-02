@@ -20,7 +20,7 @@ function artefact (idOfAtefact, positionX, positionY) {
     const newDiv = document.createElement("div")
 
     newDiv.id = `artefact-${idOfAtefact}`
-    newDiv.style.width = "100px";
+    newDiv.style.width = "40px";
     newDiv.style.height = "20px";
     newDiv.style["background-color"] = "rgb(50 26 232 / 95%)";
     newDiv.style.top = positionY;

@@ -100,4 +100,20 @@ class Agent {
     getMyPositionY () { 
         return document.getElementById(this.idOfAgent).style.top.split("px")[0]
     }
+
+    watchMyMessages () {
+        const response = [...Comunication
+                .getArrayOfMessage()
+                .filter(e => e.toAgent === this.idOfAgent)]
+        
+        Comunication.arrayOfMessages = Comunication
+                        .getArrayOfMessage()
+                        .filter(e => !(e.toAgent === this.idOfAgent))
+
+        return response
+    }
+
+    sendMessage (valueOfMessage,toAgent) {
+        return Comunication.insertNewMessage(valueOfMessage,`agent-${toAgent}`)
+    }
 }
